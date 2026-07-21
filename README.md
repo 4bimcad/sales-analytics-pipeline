@@ -97,4 +97,4 @@ Key measures (DAX):
 
 ## Author
 
-Built by Stanislav — INCAJATA SAC.
+Built by Stanislav Tsvitkov — INFOSET.ORG.PE.

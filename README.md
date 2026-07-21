@@ -54,7 +54,11 @@ See [`sql/schema.sql`](sql/schema.sql) for full DDL with constraints and indexes
 ```
 infoset-analytics-dashboard/
 ├── README.md
-├── data/sample/          # sample synthetic CSVs (small subset)
+├── data/
+│    incoming/
+│    ├── .gitkeep
+│    └── processed/
+│        └── .gitkeep
 ├── sql/
 │   ├── schema.sql        # table definitions
 │   └── queries.sql       # top clients, revenue by month, retention, etc.

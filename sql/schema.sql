@@ -65,7 +65,13 @@ CREATE TABLE compras (
 -- ---------------------------------------------------------
 -- Indexes for common analytical queries
 -- ---------------------------------------------------------
-CREATE INDEX idx_compras_cliente   ON compras(cliente_id);
-CREATE INDEX idx_compras_curso     ON compras(curso_id);
+CREATE INDEX idx_compras_cliente ON compras(cliente_id);
+CREATE INDEX idx_compras_curso ON compras(curso_id);
 CREATE INDEX idx_compras_categoria ON compras(categoria_id);
-CREATE INDEX idx_compras_fecha     ON compras(fecha_compra);
+CREATE INDEX idx_compras_fecha ON compras(fecha_compra);
+
+-- ---------------------------------------------------------
+-- Unique constraint to prevent duplicate purchases
+-- (protects against re-processing the same CSV twice)
+-- ---------------------------------------------------------
+ALTER TABLE compras ADD CONSTRAINT uq_compra UNIQUE (cliente_id, curso_id, fecha_compra, monto);

@@ -93,11 +93,11 @@ def insert_rows(conn, df):
     ]
 
     query = """
-        INSERT INTO compras
-            (cliente_id, curso_id, categoria_id, certificado_id, fecha_compra, monto)
-        VALUES %s
-        ON CONFLICT DO NOTHING
-    """
+    INSERT INTO compras
+        (cliente_id, curso_id, categoria_id, certificado_id, fecha_compra, monto)
+    VALUES %s
+    ON CONFLICT (cliente_id, curso_id, fecha_compra, monto) DO NOTHING
+"""
 
     with conn.cursor() as cur:
         execute_values(cur, query, rows)
